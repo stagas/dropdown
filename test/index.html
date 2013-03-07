@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dropdown</title>
+    <link rel="stylesheet" href="../build/build.css">
+    <style>
+    #box {
+      display: inline-block;
+      border: 1px solid black;
+      line-height: 20px;
+      white-space: no-wrap;
+      width: 150px;
+      text-decoration: none;
+      color: black;
+    }
+    </style>
+  </head>
+  <body>
+    <input id="day" placeholder="Enter a day of the week">
+    <input id="blurtest" placeholder="To test blur/tab">
+    <a href="#" id="box">&lt;a&gt; tag</a>
+    <script src="../build/build.js"></script>
+    <script>
+
+    require('stagas-watch-js')
+
+    var Dropdown = require('dropdown')
+    var input = document.getElementById('day')
+
+    var dropdown = Dropdown(input)
+
+    ;['Monday'
+    , 'Tuesday'
+    , 'Wednesday'
+    , 'Thursday'
+    , 'Friday'
+    , 'Saturday'
+    , 'Sunday'
+    ].forEach(function (day) {
+      dropdown.add(day)
+    })
+
+    var lastValue = input.value
+
+    dropdown.on('select', function (item) {
+      if (!item) return
+      if (input.value != item.text) {
+        input.focus()
+        input.value = lastValue = item.text
+      }
+    })
+
+    input.onkeyup = function (ev) {
+      if (input.value != lastValue) {
+        dropdown.filter(function (item) {
+          return match(item.text, input.value)
+        })
+        dropdown.show()
+        lastValue = input.value
+      }
+    }
+
+    function match (a, b) {
+      return !!~a.toLowerCase().indexOf(b.toLowerCase())
+    }
+
+    //
+
+    var box = document.getElementById('box')
+    var dd = Dropdown(box)
+    dd.add('One')
+    dd.add('Two')
+    dd.add('Three')
+    dd.add('Four')
+    dd.add('Five')
+    dd.on('select', function (item) {
+      box.textContent = item.text
+    })
+    </script>
+  </body>
+</html>

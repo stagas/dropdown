@@ -1,0 +1,23 @@
+{
+  "name": "dropdown",
+  "version": "0.0.1",
+  "description": "a minimal dropdown with UX details",
+  "keywords": [
+    "ui",
+    "ux",
+    "dropdown"
+  ],
+  "author": "stagas",
+  "license": "MIT",
+  "dependencies": {
+    "component/jquery": "*",
+    "component/inherit": "*",
+    "stagas/menu": "*"
+  },
+  "development": {
+    "stagas/watch-js": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}
