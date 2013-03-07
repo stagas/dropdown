@@ -13,6 +13,7 @@
 
 var o = require('jquery')
 var inherit = require('inherit')
+var viewport = require('viewport')
 var Menu = require('menu')
 
 /**
@@ -144,7 +145,7 @@ Dropdown.prototype.bindRefEvents = function () {
 Dropdown.prototype.reposition = function () {
   var offset = this.ref[0].getBoundingClientRect()
   var x = offset.left
-  var y = offset.top+offset.height
+  var y = offset.top+offset.height+viewport.top
   var w = offset.width
   this.moveTo(x, y)
   this.el.css({

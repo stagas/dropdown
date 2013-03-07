@@ -12,6 +12,7 @@
   "dependencies": {
     "component/jquery": "*",
     "component/inherit": "*",
+    "stagas/viewport": "*",
     "stagas/menu": "*"
   },
   "development": {
