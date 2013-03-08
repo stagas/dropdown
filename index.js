@@ -32,6 +32,7 @@ function Dropdown (ref) {
   if (!(this instanceof Dropdown)) return new Dropdown(ref)
   Menu.call(this, this.dropdown)
 
+  this.el.addClass('dropdown')
   this.ref = o(ref)
   this.bindRefEvents()
   this.reposition()
