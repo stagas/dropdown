@@ -145,7 +145,7 @@ Dropdown.prototype.bindRefEvents = function () {
 
 Dropdown.prototype.reposition = function () {
   var offset = this.ref[0].getBoundingClientRect()
-  var x = offset.left
+  var x = offset.left+viewport.left
   var y = offset.top+offset.height+viewport.top
   var w = offset.width
   this.moveTo(x, y)
