@@ -151,6 +151,11 @@ Dropdown.prototype.reposition = function () {
   viewport.refresh()
   var x = offset.left+viewport.left
   var y = offset.top+offset.height+viewport.top
+  var eh = this.el.outerHeight(true)
+  // show from above if below visible
+  if (y + eh > viewport.bottom) {
+    y = offset.top - eh + viewport.top
+  }
   var w = offset.width
   this.moveTo(x, y)
   this.el.css({
