@@ -120,6 +120,9 @@ Dropdown.prototype.bindRefEvents = function () {
 
   this.on('show', function () {
     this.reposition()
+    setTimeout(function () {
+      this.reposition()
+    }.bind(this), 0)
     this.el.on('keydown', onkeydownEl)
   })
 
@@ -145,6 +148,7 @@ Dropdown.prototype.bindRefEvents = function () {
 
 Dropdown.prototype.reposition = function () {
   var offset = this.ref[0].getBoundingClientRect()
+  viewport.refresh()
   var x = offset.left+viewport.left
   var y = offset.top+offset.height+viewport.top
   var w = offset.width
