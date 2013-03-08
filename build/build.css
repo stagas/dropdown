@@ -7,7 +7,9 @@
   padding: 0;
   min-width: 120px;
   background: white;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,.3);
+  font-family: sans-serif;
+  font-size: 14px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -20,7 +22,7 @@
 
 .menu li a {
   display: block;
-  padding: 5px 30px 5px 12px;
+  padding: 7.5px 15px 7.5px;
   text-decoration: none;
   border-top: 1px solid #eee;
   color: #2e2e2e;
@@ -33,5 +35,6 @@
 
 .menu li a:hover,
 .menu li.selected a {
-  background: #f1faff;
+  color: #fff;
+  background: #46a;
 }

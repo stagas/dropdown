@@ -4,7 +4,7 @@
     <title>dropdown</title>
     <link rel="stylesheet" href="build/build.css">
     <style>
-    #box {
+    #box, #button {
       display: inline-block;
       border: 1px solid black;
       line-height: 20px;
@@ -13,16 +13,24 @@
       text-decoration: none;
       color: black;
     }
+    .bigbox {
+      height: 2000px;
+      width: 2000px;
+    }
     </style>
   </head>
   <body>
     <input id="day" placeholder="Enter a day of the week">
     <input id="blurtest" placeholder="To test blur/tab">
     <a href="#" id="box">&lt;a&gt; tag</a>
+    <div class="bigbox"></div>
+    <button id="button">Test scroll/button</button>
+    <div class="bigbox"></div>
+    <p><p><p>
     <script src="build/build.js"></script>
     <script>
 
-    //require('stagas-watch-js')
+    require('stagas-watch-js')
 
     var Dropdown = require('dropdown')
     var input = document.getElementById('day')
@@ -75,6 +83,17 @@
     dd.add('Five')
     dd.on('select', function (item) {
       box.textContent = item.text
+    })
+
+    var btn = document.getElementById('button')
+    var dd = Dropdown(btn)
+    dd.add('One')
+    dd.add('Two')
+    dd.add('Three')
+    dd.add('Four')
+    dd.add('Five')
+    dd.on('select', function (item) {
+      btn.textContent = item.text
     })
     </script>
   </body>
