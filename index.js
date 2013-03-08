@@ -81,15 +81,15 @@ Dropdown.prototype.bindRefEvents = function () {
         self.hide()
       break
 
-      case 39:
+      case 39: // right
         ev.stopPropagation()
       break
 
-      case 27:
+      case 27: // esc
         if (!self.isOpen()) this.blur()
       break
 
-      default:
+      default: // typing anything
         self._isSelecting = true
         self.show()
       break
